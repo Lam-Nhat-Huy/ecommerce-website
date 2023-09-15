@@ -8,5 +8,6 @@
 <script src=".../../../admin/public/libs/apexcharts/dist/apexcharts.min.js"></script>
 <script src=".../../../admin/public/libs/simplebar/dist/simplebar.js"></script>
 <script src=".../../../admin/public/js/dashboard.js"></script>
+<script src=".../../../admin/public/js/main.js"></script>
 
 </html>

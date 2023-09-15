@@ -18,7 +18,8 @@
                             <option value="0">User</option>
                         </select>
 
-                        <input class="w-full px-8 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-3" name="password" type="password" placeholder="Password" />
+                        <input class="w-full px-8 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-3" name="password" id="password" type="password" placeholder="Password" />
+
 
                         <input class="w-full px-8 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-3" name="cpassword" type="password" placeholder="Re-enter password:" />
 

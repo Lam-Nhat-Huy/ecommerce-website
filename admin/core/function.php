@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 function show($data)
 {
     echo "<pre>";
@@ -56,4 +55,32 @@ function registerAdmin($username, $email, $password, $role_id, $cpassword)
 
     // Lưu chữ thông tin lỗi
     $_SESSION['error'] = $error;
+}
+
+function loginAdmin($email, $password)
+{
+    global $conn;
+    $error = "";
+    $checkLoginQuery = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+    $checkLoginResult = mysqli_query($conn, $checkLoginQuery);
+
+    if ($error == 0) {
+        if (mysqli_num_rows($checkLoginResult) > 0) {
+            $fetchAdmin = mysqli_fetch_assoc($checkLoginResult);
+            $roleId = $fetchAdmin['role_id'];
+            if ($roleId == 1) {
+                $_SESSION['role_id'] = $fetchAdmin['id'];
+                header('Location: /index.php?pages=admin&action=dashboard');
+            } else {
+                header('Location: /index.php?pages=login');
+            }
+        }
+    }
+}
+
+function setCookies()
+{
+    // lưu và set thời gian lưu thông tin trên thanh input
+    setcookie('username', $_POST['username'], time() + 20, '/');
+    setcookie('email', $_POST['email'], time() + 20, '/');
 }
