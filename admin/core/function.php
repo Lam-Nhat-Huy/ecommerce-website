@@ -16,6 +16,11 @@ function check_error()
     }
 }
 
+function sanitize_input($conn, $data)
+{
+    return trim(mysqli_real_escape_string($conn, $data));
+}
+
 
 function registerAdmin($username, $email, $password, $role_id, $cpassword)
 {
@@ -74,6 +79,8 @@ function loginAdmin($email, $password)
             } else {
                 header('Location: /index.php?pages=login');
             }
+        } else {
+            header('Location: /index.php?pages=login');
         }
     }
 }
