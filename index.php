@@ -20,6 +20,9 @@ if (isset($_GET['pages'])) {
                 case 'dashboard':
                     include './admin/resources/admin/dashboard.php';
                     break;
+                case 'ui-buttons':
+                    include './admin/resources/admin/ui-buttons.php';
+                    break;
                 default:
                     include './admin/resources/admin/dashboard.php';
                     break;
