@@ -21,6 +21,23 @@ function sanitize_input($conn, $data)
     return trim(mysqli_real_escape_string($conn, $data));
 }
 
+function checkLoginSesstion()
+{
+    if (isset($_SESSION['user'])) {
+        header("Location: ./index.php?pages=admin&action=dashboard");
+    }
+}
+
+
+
+function  checkLogout()
+{
+    session_start();
+    session_destroy();
+    header("Location: ./index.php?pages=login");
+}
+
+
 
 function registerAdmin($username, $email, $password, $role_id, $cpassword)
 {
@@ -75,6 +92,7 @@ function loginAdmin($email, $password)
             $roleId = $fetchAdmin['role_id'];
             if ($roleId == 1) {
                 $_SESSION['role_id'] = $fetchAdmin['id'];
+                $_SESSION['user'] = "yes";
                 header('Location: /index.php?pages=admin&action=dashboard');
             } else {
                 header('Location: /index.php?pages=login');

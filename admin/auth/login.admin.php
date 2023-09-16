@@ -1,4 +1,6 @@
-<?php include './admin/include/loginviews/header.php'; ?>
+<?php
+include './admin/include/loginviews/header.php';
+?>
 <div class="max-w-screen-xl m-0 sm:m-20   sm:rounded-lg flex justify-center flex-1">
     <div class="lg:w-1/2 xl:w-5/12  sm:p-12">
         <div class="flex flex-col items-center">

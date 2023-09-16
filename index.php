@@ -1,5 +1,4 @@
 <?php
-
 require_once './config/database.php';
 
 if (isset($_GET['pages'])) {
@@ -11,7 +10,10 @@ if (isset($_GET['pages'])) {
             include './admin/auth/register.admin.php';
             break;
         case 'execution':
-            include './admin/core/code.php';
+            include './admin/core/codeLoginView.php';
+            break;
+        case 'execution-2':
+            include './admin/core/codeAdminView.php';
             break;
 
 

@@ -74,11 +74,11 @@
                         <span class="hide-menu">AUTH</span>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                        <a onclick="return confirm('Bạn có chắc chắn muốn đăng xuất? ')" class="sidebar-link" href="./index.php?pages=execution-2" aria-expanded="false">
                             <span>
                                 <i class="ti ti-login"></i>
                             </span>
-                            <span class="hide-menu">Login</span>
+                            <span class="hide-menu">Logout</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
