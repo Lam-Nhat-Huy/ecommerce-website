@@ -29,6 +29,7 @@ function checkLoginSesstion()
 }
 
 
+
 function  checkLogout()
 {
     session_start();
@@ -36,6 +37,15 @@ function  checkLogout()
     header("Location: ./index.php?pages=login");
 }
 
+function saveUser()
+{
+    global $conn;
+    $id = $_SESSION['role_id'];
+    $checkUserQuery = "SELECT * FROM users WHERE id = '$id'";
+    $checkUserResult = mysqli_query($conn, $checkUserQuery);
+    $fetchUser = mysqli_fetch_assoc($checkUserResult);
+    echo $fetchUser['username'];
+}
 
 
 function registerAdmin($username, $email, $password, $role_id, $cpassword)
