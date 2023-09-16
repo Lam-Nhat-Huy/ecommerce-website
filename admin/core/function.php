@@ -29,7 +29,6 @@ function checkLoginSesstion()
 }
 
 
-
 function  checkLogout()
 {
     session_start();
@@ -106,6 +105,6 @@ function loginAdmin($email, $password)
 function setCookies()
 {
     // lưu và set thời gian lưu thông tin trên thanh input
-    setcookie('username', $_POST['username'], time() + 20, '/');
-    setcookie('email', $_POST['email'], time() + 20, '/');
+    setcookie('username', $_POST['username'], time() + 15, '/');
+    setcookie('email', $_POST['email'], time() + 15, '/');
 }

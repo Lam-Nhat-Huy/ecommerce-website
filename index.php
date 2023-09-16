@@ -25,6 +25,9 @@ if (isset($_GET['pages'])) {
                 case 'ui-buttons':
                     include './admin/resources/admin/ui-buttons.php';
                     break;
+                case 'list':
+                    include './admin/resources/admin/list.php';
+                    break;
                 default:
                     include './admin/resources/admin/dashboard.php';
                     break;
