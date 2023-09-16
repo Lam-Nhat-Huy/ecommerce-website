@@ -1,6 +1,3 @@
-<?php
-require('./admin/core/function.php');
-?>
 <!doctype html>
 <html lang="en">
 

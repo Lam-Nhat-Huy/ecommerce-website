@@ -1,5 +1,6 @@
 <?php
 require_once './config/database.php';
+require('./admin/core/function.php');
 
 if (isset($_GET['pages'])) {
     switch ($_GET['pages']) {
@@ -15,7 +16,6 @@ if (isset($_GET['pages'])) {
         case 'execution-2':
             include './admin/core/codeAdminView.php';
             break;
-
 
         case 'admin':
             switch ($_GET['action']) {

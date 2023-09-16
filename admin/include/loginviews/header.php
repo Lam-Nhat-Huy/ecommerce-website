@@ -1,5 +1,4 @@
 <?php
-require('./admin/core/function.php');
 checkLoginSesstion();
 ?>
 <html>

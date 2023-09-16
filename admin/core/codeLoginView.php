@@ -1,6 +1,5 @@
 <?php
-require_once './config/database.php';
-require_once './admin/core/function.php';
+
 
 if (isset($_POST['signup-admin'])) {
     $username = sanitize_input($conn, $_POST['username']);
