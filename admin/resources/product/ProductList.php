@@ -12,6 +12,24 @@
             Danh Sách Sản Phẩm
             <a href="./index.php?pages=product&action=add" class="btn btn-danger float-end">Thêm</a>
         </h4>
+        <div class="card-body">
+            <table class="table ">
+                <thead>
+                    <tr class="font-weight-bolder">
+                        <td>ID</td>
+                        <td>Tên Khóa Học</td>
+                        <td>Hình Ảnh</td>
+                        <td>Giá</td>
+                        <td>Mô Tả</td>
+                        <td>Phân loại</td>
+                        <td>Tùy Chọn</td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
