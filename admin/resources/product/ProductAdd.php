@@ -12,7 +12,7 @@
             Thêm Sản Phẩm
             <a href="./index.php?pages=product&action=list" class="btn btn-danger float-end">Trở về</a>
         </h4>
-        <form action="./admin/core/CodeAdminLogin.php" method="post" enctype="multipart/form-data" class="needs-validation was-validated">
+        <form action="./index.php?pages=execution-3" method="post" enctype="multipart/form-data" class="needs-validation was-validated">
             <div class="mb-3">
                 <label for="username">Tên Sản Phẩm: </label>
                 <input type="text" class="form-control" name="name" required>

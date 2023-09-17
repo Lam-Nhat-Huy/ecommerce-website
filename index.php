@@ -16,7 +16,9 @@ if (isset($_GET['pages'])) {
         case 'execution-2':
             include './admin/core/codeAdminView.php';
             break;
-
+        case 'execution-3':
+            include './admin/core/codeProductView.php';
+            break;
         case 'admin':
             switch ($_GET['action']) {
                 case 'dashboard':
