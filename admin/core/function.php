@@ -60,7 +60,7 @@ function registerAdmin($username, $email, $password, $role_id, $cpassword)
         $error .= "Email already exists <br>";
     }
     // Hàm dùng để redex name
-    if (empty($username) || !preg_match('/^[a-zA-Z ]+$/', $username)) {
+    if (empty($username)) {
         $error .= "Please enter a valid name <br>";
     }
     // Hàm dùng để redex email
