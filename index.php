@@ -25,12 +25,6 @@ if (isset($_GET['pages'])) {
                 case 'category':
                     include './admin/resources/admin/Category.php';
                     break;
-                case 'add':
-                    include './admin/resources/admin/ProductAdd.php';
-                    break;
-                case 'list':
-                    include './admin/resources/admin/ProductList.php';
-                    break;
                 default:
                     include './admin/resources/admin/Dashboard.php';
                     break;
@@ -40,16 +34,16 @@ if (isset($_GET['pages'])) {
         case 'product':
             switch ($_GET['action']) {
                 case 'list':
-                    include './admin/resources/product/list.php';
+                    include './admin/resources/product/ProductList.php';
                     break;
                 case 'add':
-                    include './admin/resources/product/add.php';
+                    include './admin/resources/product/ProductAdd.php';
                     break;
                 case 'edit':
-                    include './admin/resources/product/edit.php';
+                    include './admin/resources/product/ProductEdit.php';
                     break;
                 default:
-                    include './admin/resources/product/list.php';
+                    include './admin/resources/product/ProductList.php';
                     break;
             }
             break;

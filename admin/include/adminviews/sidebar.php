@@ -24,7 +24,7 @@
                     </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="./index.php?pages=admin&action=list" aria-expanded="false">
+                        <a class="sidebar-link" href="./index.php?pages=product&action=list" aria-expanded="false">
                             <span class="hide-menu">Product</span>
                         </a>
                     </li>
