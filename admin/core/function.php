@@ -118,3 +118,15 @@ function setCookies()
     setcookie('username', $_POST['username'], time() + 15, '/');
     setcookie('email', $_POST['email'], time() + 15, '/');
 }
+
+
+function CreateNewProduct($name, $image, $price, $description, $category_id)
+{
+    global $conn;
+    if (!empty($name) or !empty($image) or !empty($price) or !empty($description) or !empty($category_id)) {
+        $query_course = mysqli_query($conn, "INSERT INTO products (name, image, price, description, category_id) VALUES ('$name', '$image', '$price', '$description', '$category_id')");
+        header('Location: /index.php?pages=product&action=list');
+    } else {
+        header('Location: /index.php?pages=product&action=add');
+    }
+}

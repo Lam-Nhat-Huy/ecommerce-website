@@ -58,7 +58,7 @@
 
             </div>
             <div class="mb-3">
-                <button type="submit" name="addCourse" class="btn btn-primary">Thêm</button>
+                <button type="submit" name="addProduct" class="btn btn-primary">Thêm</button>
             </div>
         </form>
     </div>
