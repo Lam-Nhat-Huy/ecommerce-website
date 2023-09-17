@@ -20,16 +20,19 @@ if (isset($_GET['pages'])) {
         case 'admin':
             switch ($_GET['action']) {
                 case 'dashboard':
-                    include './admin/resources/admin/dashboard.php';
+                    include './admin/resources/admin/Dashboard.php';
                     break;
-                case 'ui-buttons':
-                    include './admin/resources/admin/ui-buttons.php';
+                case 'category':
+                    include './admin/resources/admin/Category.php';
+                    break;
+                case 'add':
+                    include './admin/resources/admin/ProductAdd.php';
                     break;
                 case 'list':
-                    include './admin/resources/admin/list.php';
+                    include './admin/resources/admin/ProductList.php';
                     break;
                 default:
-                    include './admin/resources/admin/dashboard.php';
+                    include './admin/resources/admin/Dashboard.php';
                     break;
             }
             break;
