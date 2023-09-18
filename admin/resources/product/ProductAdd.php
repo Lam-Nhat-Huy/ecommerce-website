@@ -10,7 +10,7 @@
     <div class="container-fluid">
         <h4>
             Thêm Sản Phẩm
-            <a href="./index.php?pages=product&action=list" class="btn btn-danger float-end">Trở về</a>
+            <a href="./index.php?pages=product&action=list" class="btn btn-danger float-end"><i class="fas fa-arrow-left"></i></a>
         </h4>
         <form action="./index.php?pages=execution-3" method="post" enctype="multipart/form-data" class="needs-validation was-validated">
             <div class="mb-3">
