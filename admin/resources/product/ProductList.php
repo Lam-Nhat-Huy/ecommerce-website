@@ -10,7 +10,7 @@
     <div class="container-fluid">
         <h4>
             Danh Sách Sản Phẩm
-            <a href="./index.php?pages=product&action=add" class="btn btn-danger float-end">Thêm</a>
+            <a href="./index.php?pages=product&action=add" class="btn btn-danger float-end"><i class="fas fa-plus"></i></a>
         </h4>
         <div class="card-body">
             <table class="table ">
@@ -36,18 +36,18 @@
                                 <td><?= $fetch_course['id'] ?></td>
                                 <td><?= $fetch_course['name'] ?></td>
                                 <td>
-                                    <img src="./admin/uploads/<?= $fetch_course['image'] ?>" alt="" width="100px">
+                                    <img src="./admin/upload/<?= $fetch_course['image'] ?>" alt="" width="100px">
                                 </td>
-                                <td><?= $fetch_course['price'] ?></td>
+                                <td><?= currency_format($fetch_course['price']); ?></td>
                                 <td class="td-width"><?= $fetch_course['description'] ?></td>
                                 <td><?= $fetch_course['category_name'] ?></td>
 
-                                <td class="d-flex justify-content-evenly ">
-                                    <a href="./index.php?pages=product&action=edit&id=<?= $fetch_course['id'] ?>" class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i>
+                                <td class="p-4">
+                                    <a href="./index.php?pages=product&action=edit&id=<?= $fetch_course['id'] ?>" class="btn btn-primary mb-1"><i class="fas fa-pencil-alt"></i>
                                     </a>
 
                                     <form action="./admin/core/CodeAdminLogin.php" method="post">
-                                        <button onclick="return confirm('Bạn có chắc chắn muốn xóa? ')" type="submit" class="btn btn-danger btn-sm" name="deleteCourse" value="<?= $fetch_course['id'] ?>"><i class="fas fa-trash-alt"></i>
+                                        <button onclick="return confirm('Bạn có chắc chắn muốn xóa? ')" type="submit" class="btn btn-danger mb-1" name="deleteCourse" value="<?= $fetch_course['id'] ?>"><i class="fas fa-trash-alt"></i>
                                         </button>
                                     </form>
 

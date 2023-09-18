@@ -119,6 +119,12 @@ function setCookies()
     setcookie('email', $_POST['email'], time() + 15, '/');
 }
 
+function currency_format($number, $suffix = 'đ')
+{
+    if (!empty($number)) {
+        return number_format($number, 0, ',', '.') . "{$suffix}";
+    }
+}
 
 function CreateNewProduct($name, $image, $price, $description, $category_id)
 {

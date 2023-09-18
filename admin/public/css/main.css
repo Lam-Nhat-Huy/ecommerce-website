@@ -8,3 +8,6 @@ ul {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.btn-primary {
+    background-color: #5D87FF !important;
+}

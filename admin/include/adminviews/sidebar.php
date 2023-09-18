@@ -4,7 +4,7 @@
         <div>
             <div class="brand-logo d-flex align-items-center justify-content-between">
                 <a href="./index.html" class="text-nowrap logo-img">
-                    <img src="../../../admin/public/images/logos/dark-logo.svg" width="180" alt="" />
+                    <h3>B E E L A B</h3>
                 </a>
                 <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                     <i class="ti ti-x fs-8"></i>
@@ -15,23 +15,23 @@
                 <ul id="sidebarnav">
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">Home</span>
+                        <span class="hide-menu">Trang chủ</span>
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="./index.php?pages=admin&action=dashboard" aria-expanded="false">
-                            <span class="hide-menu">Dashboard</span>
+                            <span class="hide-menu">Điều khiển</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="./index.php?pages=product&action=list" aria-expanded="false">
-                            <span class="hide-menu">Product</span>
+                            <span class="hide-menu">Sản phẩm</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="./index.php?pages=admin&action=category" aria-expanded="false">
-                            <span class="hide-menu">Category</span>
+                            <span class="hide-menu">Phân loại</span>
                         </a>
                     </li>
 
@@ -44,7 +44,7 @@
                             <span>
                                 <i class="ti ti-login"></i>
                             </span>
-                            <span class="hide-menu">Logout</span>
+                            <span class="hide-menu">Đăng xuất</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
@@ -52,7 +52,7 @@
                             <span>
                                 <i class="ti ti-user-plus"></i>
                             </span>
-                            <span class="hide-menu">Register</span>
+                            <span class="hide-menu">Đăng Ký</span>
                         </a>
                     </li>
                     <li class="nav-small-cap">
