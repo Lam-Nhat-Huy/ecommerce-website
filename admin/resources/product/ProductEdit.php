@@ -14,8 +14,8 @@
         </h4>
         <div class="card-body">
             <?php
-            $course_id = mysqli_real_escape_string($conn, $_GET['id']);
-            $query = "SELECT * FROM products WHERE id = $course_id";
+            $proudct_id = mysqli_real_escape_string($conn, $_GET['id']);
+            $query = "SELECT * FROM products WHERE id = $proudct_id";
             $sql = mysqli_query($conn, $query);
 
             while ($select_course = mysqli_fetch_array($sql)) {
@@ -70,7 +70,6 @@
                         <button type="submit" name="updateCourse" class="btn btn-primary">Lưu</button>
                     </div>
                 </form>
-
             <?php
             }
 

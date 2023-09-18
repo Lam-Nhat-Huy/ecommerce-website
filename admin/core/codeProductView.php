@@ -17,14 +17,20 @@ if (isset($_POST['addProduct'])) {
 }
 
 if (isset($_POST['updateCourse'])) {
-    $course_id =  mysqli_real_escape_string($conn, $_POST['product_id']);
+    $product_id =  mysqli_real_escape_string($conn, $_POST['product_id']);
     $name =  mysqli_real_escape_string($conn, $_POST['name']);
     $image =  mysqli_real_escape_string($conn, $_POST['image']);
     $price =  mysqli_real_escape_string($conn, $_POST['price']);
     $description =  mysqli_real_escape_string($conn, $_POST['description']);
     $category_id =  mysqli_real_escape_string($conn, $_POST['category_id']);
-    $query_course = mysqli_query($conn, "UPDATE products SET `name`='$name',`image`='$image', `price`='$price', `description`='$description', `category_id` = '$category_id' WHERE id= $course_id");
+    $query_course = mysqli_query($conn, "UPDATE products SET `name`='$name',`image`='$image', `price`='$price', `description`='$description', `category_id` = '$category_id' WHERE id= $product_id");
     if ($query_course) {
         header('Location: /index.php?pages=product&action=list');
     }
+}
+
+
+
+if (isset($_POST['deleteCourse'])) {
+    DeleteCurrentProduct();
 }

@@ -130,37 +130,53 @@ function CreateNewProduct($name, $image, $price, $description, $category_id)
 {
     global $conn;
     if (!empty($name) or !empty($image) or !empty($price) or !empty($description) or !empty($category_id)) {
-        $query_course = mysqli_query($conn, "INSERT INTO products (name, image, price, description, category_id) VALUES ('$name', '$image', '$price', '$description', '$category_id')");
+        $query_product = mysqli_query($conn, "INSERT INTO products (name, image, price, description, category_id) VALUES ('$name', '$image', '$price', '$description', '$category_id')");
         header('Location: /index.php?pages=product&action=list');
     } else {
         header('Location: /index.php?pages=product&action=add');
     }
 }
 
+function DeleteCurrentProduct()
+{
+    global $conn;
+
+    $product_id = mysqli_real_escape_string($conn, $_POST['deleteCourse']);
+
+    $query = "SELECT image FROM courses WHERE id = $product_id";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $query = "DELETE FROM products WHERE id = $product_id";
+    $sql = mysqli_query($conn, $query);
+    if ($sql) {
+        header('Location: /index.php?pages=product&action=list');
+    }
+}
+
 function productListViews()
 {
     global $conn;
-    $query_course = mysqli_query($conn, "SELECT c.id, c.name, c.image, c.image, c.price, c.description, ct.category_name
+    $query_product = mysqli_query($conn, "SELECT c.id, c.name, c.image, c.image, c.price, c.description, ct.category_name
     FROM products c, category ct WHERE c.category_id = ct.id");
-    if (mysqli_num_rows($query_course) >  0) {
-        while ($fetch_course = mysqli_fetch_assoc($query_course)) {
+    if (mysqli_num_rows($query_product) >  0) {
+        while ($fetch_product = mysqli_fetch_assoc($query_product)) {
 ?>
             <tr style="vertical-align: middle;">
-                <td><?= $fetch_course['id'] ?></td>
-                <td><?= $fetch_course['name'] ?></td>
+                <td><?= $fetch_product['id'] ?></td>
+                <td><?= $fetch_product['name'] ?></td>
                 <td>
-                    <img src="./admin/upload/<?= $fetch_course['image'] ?>" alt="" width="100px">
+                    <img src="./admin/upload/<?= $fetch_product['image'] ?>" alt="" width="100px">
                 </td>
-                <td><?= currency_format($fetch_course['price']); ?></td>
-                <td class="td-width"><?= $fetch_course['description'] ?></td>
-                <td><?= $fetch_course['category_name'] ?></td>
+                <td><?= currency_format($fetch_product['price']); ?></td>
+                <td class="td-width"><?= $fetch_product['description'] ?></td>
+                <td><?= $fetch_product['category_name'] ?></td>
 
                 <td class="p-4">
-                    <a href="./index.php?pages=product&action=edit&id=<?= $fetch_course['id'] ?>" class="btn btn-primary mb-1"><i class="fas fa-pencil-alt"></i>
+                    <a href="./index.php?pages=product&action=edit&id=<?= $fetch_product['id'] ?>" class="btn btn-primary mb-1"><i class="fas fa-pencil-alt"></i>
                     </a>
 
-                    <form action="./admin/core/CodeAdminLogin.php" method="post">
-                        <button onclick="return confirm('Bạn có chắc chắn muốn xóa? ')" type="submit" class="btn btn-danger mb-1" name="deleteCourse" value="<?= $fetch_course['id'] ?>"><i class="fas fa-trash-alt"></i>
+                    <form action="./index.php?pages=execution-3" method="post">
+                        <button onclick="return confirm('Bạn có chắc chắn muốn xóa? ')" type="submit" class="btn btn-danger mb-1" name="deleteCourse" value="<?= $fetch_product['id'] ?>"><i class="fas fa-trash-alt"></i>
                         </button>
                     </form>
 
