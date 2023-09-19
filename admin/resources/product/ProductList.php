@@ -20,7 +20,7 @@
                         <td>Tên Khóa Học</td>
                         <td>Hình Ảnh</td>
                         <td>Giá</td>
-                        <td>Mô Tả</td>
+                        <td>Trạng Thái</td>
                         <td>Phân loại</td>
                         <td>Tùy Chọn</td>
                     </tr>

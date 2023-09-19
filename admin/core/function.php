@@ -126,6 +126,18 @@ function currency_format($number, $suffix = 'đ')
     }
 }
 
+function getIdFromCurrentUrl()
+{
+    $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    $parts = parse_url($url);
+    parse_str($parts['query'], $query);
+    if (isset($query['id'])) {
+        return $query['id'];
+    } else {
+        return 'Không tìm thấy ID trong URL';
+    }
+}
+
 function CreateNewProduct($name, $image, $price, $description, $category_id)
 {
     global $conn;
@@ -149,13 +161,42 @@ function DisplayCategoryView()
         }
     }
 }
+
+function CreateNewCategory($category_name, $category_note)
+{
+    global $conn;
+    $query_category = mysqli_query($conn, "INSERT INTO category (category_name, category_note) VALUES ('$category_name', '$category_note')");
+
+    if ($query_category) {
+        header("Location: /index.php?pages=category&action=list");
+    } else {
+        header("Location: /index.php?pages=category&action=add");
+    }
+}
+
+function DeleteCurrentCategory()
+{
+    global $conn;
+    $category_id = mysqli_real_escape_string($conn, $_POST['deleteCategory']);
+    $query = "SELECT * FROM category WHERE id = $category_id";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $query = "DELETE FROM category WHERE id = $category_id";
+    $sql = mysqli_query($conn, $query);
+    if ($sql) {
+        header('Location: /index.php?pages=category&action=list');
+    }
+}
+
+
+
 function DeleteCurrentProduct()
 {
     global $conn;
 
     $product_id = mysqli_real_escape_string($conn, $_POST['deleteCourse']);
 
-    $query = "SELECT image FROM courses WHERE id = $product_id";
+    $query = "SELECT * FROM products WHERE id = $product_id";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
     $query = "DELETE FROM products WHERE id = $product_id";
@@ -168,7 +209,7 @@ function DeleteCurrentProduct()
 function productListViews()
 {
     global $conn;
-    $query_product = mysqli_query($conn, "SELECT c.id, c.name, c.image, c.image, c.price, c.description, ct.category_name
+    $query_product = mysqli_query($conn, "SELECT c.id, c.name, c.image, c.image, c.price, c.description, ct.category_name, ct.category_note
     FROM products c, category ct WHERE c.category_id = ct.id");
     if (mysqli_num_rows($query_product) >  0) {
         while ($fetch_product = mysqli_fetch_assoc($query_product)) {
@@ -180,7 +221,7 @@ function productListViews()
                     <img src="./admin/upload/<?= $fetch_product['image'] ?>" alt="" width="100px">
                 </td>
                 <td><?= currency_format($fetch_product['price']); ?></td>
-                <td class="td-width"><?= $fetch_product['description'] ?></td>
+                <td class="td-width"><?= $fetch_product['category_note'] ?></td>
                 <td><?= $fetch_product['category_name'] ?></td>
 
                 <td class="p-4">

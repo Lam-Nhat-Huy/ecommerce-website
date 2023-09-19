@@ -21,7 +21,7 @@
             while ($select_course = mysqli_fetch_array($sql)) {
             ?>
                 <form action="./index.php?pages=execution-3" method="post" enctype="multipart/form-data" class="needs-validation was-validated">
-                    <input type="hidden" name="product_id" value="<?= $select_course['id'] ?>">
+                    <input type="hidden" name="product_id" value="<?= getIdFromCurrentUrl() ?>">
                     <div class="mb-3">
                         <label for="">Tên sản phẩm: </label>
                         <input type="text" class="form-control" name="name" value="<?= $select_course['name'] ?>" required>

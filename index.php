@@ -24,9 +24,6 @@ if (isset($_GET['pages'])) {
                 case 'dashboard':
                     include './admin/resources/admin/Dashboard.php';
                     break;
-                case 'category':
-                    include './admin/resources/admin/Category.php';
-                    break;
                 default:
                     include './admin/resources/admin/Dashboard.php';
                     break;
@@ -46,6 +43,23 @@ if (isset($_GET['pages'])) {
                     break;
                 default:
                     include './admin/resources/product/ProductList.php';
+                    break;
+            }
+            break;
+
+        case 'category':
+            switch ($_GET['action']) {
+                case 'list':
+                    include './admin/resources/category/CategoryList.php';
+                    break;
+                case 'add':
+                    include './admin/resources/category/CategoryAdd.php';
+                    break;
+                case 'edit':
+                    include './admin/resources/category/CategoryEdit.php';
+                    break;
+                default:
+                    include './admin/resources/category/CategoryList.php';
                     break;
             }
             break;

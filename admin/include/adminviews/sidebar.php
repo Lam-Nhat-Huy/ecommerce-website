@@ -30,8 +30,8 @@
                     </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="./index.php?pages=admin&action=category" aria-expanded="false">
-                            <span class="hide-menu">Phân loại</span>
+                        <a class="sidebar-link" href="./index.php?pages=category&action=list" aria-expanded="false">
+                            <span class="hide-menu">Danh mục</span>
                         </a>
                     </li>
 
