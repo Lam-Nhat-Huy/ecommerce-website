@@ -137,6 +137,18 @@ function CreateNewProduct($name, $image, $price, $description, $category_id)
     }
 }
 
+function DisplayCategoryView()
+{
+    global $conn;
+    $select_category_id = mysqli_query($conn, "SELECT * FROM category");
+    if (mysqli_num_rows($select_category_id) > 0) {
+        while ($row = mysqli_fetch_array($select_category_id)) {
+?>
+            <option value="<?= $row['id'] ?>"><?= $row['category_name'] ?></option>
+        <?php
+        }
+    }
+}
 function DeleteCurrentProduct()
 {
     global $conn;
@@ -160,7 +172,7 @@ function productListViews()
     FROM products c, category ct WHERE c.category_id = ct.id");
     if (mysqli_num_rows($query_product) >  0) {
         while ($fetch_product = mysqli_fetch_assoc($query_product)) {
-?>
+        ?>
             <tr style="vertical-align: middle;">
                 <td><?= $fetch_product['id'] ?></td>
                 <td><?= $fetch_product['name'] ?></td>

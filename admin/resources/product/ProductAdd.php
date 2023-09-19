@@ -56,7 +56,7 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <button type="submit" name="addProduct" class="btn btn-primary">Thêm</button>
+                    <button type="submit" name="addProduct" class="btn btn-primary"><i class="fas fa-save"></i></button>
                 </div>
         </form>
     </div>
