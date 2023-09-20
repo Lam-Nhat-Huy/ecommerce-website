@@ -26,7 +26,6 @@ if (isset($_POST['updateProduct'])) {
     editCurrentProduct($name, $image, $price, $description, $category_id, $product_id);
 }
 
-
 if (isset($_POST['deteleProduct'])) {
     deleteCurrentProduct();
 }
