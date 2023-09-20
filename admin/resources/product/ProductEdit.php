@@ -18,34 +18,34 @@
             $query = "SELECT * FROM products WHERE id = $proudct_id";
             $sql = mysqli_query($conn, $query);
 
-            while ($select_course = mysqli_fetch_array($sql)) {
+            while ($select_product = mysqli_fetch_array($sql)) {
             ?>
                 <form action="./index.php?pages=execution-3" method="post" enctype="multipart/form-data" class="needs-validation was-validated">
                     <input type="hidden" name="product_id" value="<?= getIdFromCurrentUrl() ?>">
                     <div class="mb-3">
                         <label for="">Tên sản phẩm: </label>
-                        <input type="text" class="form-control" name="name" value="<?= $select_course['name'] ?>" required>
+                        <input type="text" class="form-control" name="name" value="<?= $select_product['name'] ?>" required>
                         <div class="invalid-feedback">
                             Sản phẩm không được để trống.
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="">Hình Ảnh: </label>
-                        <input type="text" class="form-control" name="image" value="<?= $select_course['image'] ?>" required>
+                        <input type="file" class="form-control" name="image" value="<?= $select_product['image'] ?>">
                         <div class="invalid-feedback">
                             Hình ảnh không được để trống.
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="">Giá: </label>
-                        <input type="number" min="0" class="form-control" name="price" value="<?= $select_course['price'] ?>" required>
+                        <input type="number" min="0" class="form-control" name="price" value="<?= $select_product['price'] ?>" required>
                         <div class="invalid-feedback">
                             Giá không được để trống.
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="">Mô tả: </label>
-                        <input type="text" class="form-control" name="description" value="<?= $select_course['description'] ?>" required>
+                        <input type="text" class="form-control" name="description" value="<?= $select_product['description'] ?>" required>
                         <div class="invalid-feedback">
                             Mô tả không được để trống.
                         </div>
@@ -60,7 +60,7 @@
 
                     </div>
                     <div class="mb-3">
-                        <button type="submit" name="updateProduct" class="btn btn-primary"><i class="fas fa-save"></i>
+                        <button type="submit" name="editProduct" class="btn btn-primary"><i class="fas fa-save"></i>
                         </button>
                     </div>
                 </form>
