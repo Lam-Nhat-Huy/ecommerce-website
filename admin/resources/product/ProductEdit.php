@@ -60,7 +60,7 @@
 
                     </div>
                     <div class="mb-3">
-                        <button type="submit" name="updateCourse" class="btn btn-primary"><i class="fas fa-save"></i>
+                        <button type="submit" name="updateProduct" class="btn btn-primary"><i class="fas fa-save"></i>
                         </button>
                     </div>
                 </form>

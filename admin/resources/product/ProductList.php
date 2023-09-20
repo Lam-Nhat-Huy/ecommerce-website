@@ -47,7 +47,7 @@
                                     </a>
 
                                     <form action="./index.php?pages=execution-3" method="post">
-                                        <button onclick="return confirm('Bạn có chắc chắn muốn xóa? ')" type="submit" class="btn btn-danger mb-1" name="deleteCourse" value="<?= $fetch_product['id'] ?>"><i class="fas fa-trash-alt"></i>
+                                        <button onclick="return confirm('Bạn có chắc chắn muốn xóa? ')" type="submit" class="btn btn-danger mb-1" name="deteleProduct" value="<?= $fetch_product['id'] ?>"><i class="fas fa-trash-alt"></i>
                                         </button>
                                     </form>
 

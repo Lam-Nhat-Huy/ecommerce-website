@@ -23,10 +23,10 @@
                 </div>
                 <div class="mb-3">
                     <label for="">Ghi chú: </label>
-                    <input type="text" class="form-control" name="category_note" required>
-                    <div class="invalid-feedback">
-                        Ghi chú không được để trống.
-                    </div>
+                    <select class="form-control" name="category_note">
+                        <option value="Còn hàng">Còn hàng</option>
+                        <option value="Hết hàng">Hết hàng</option>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <button type="submit" name="addCategory" class="btn btn-primary"><i class="fas fa-save"></i></button>

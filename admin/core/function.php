@@ -138,7 +138,7 @@ function getIdFromCurrentUrl()
     }
 }
 
-function CreateNewProduct($name, $image, $price, $description, $category_id)
+function createNewProduct($name, $image, $price, $description, $category_id)
 {
     global $conn;
     if (!empty($name) or !empty($image) or !empty($price) or !empty($description) or !empty($category_id)) {
@@ -149,7 +149,32 @@ function CreateNewProduct($name, $image, $price, $description, $category_id)
     }
 }
 
-function DisplayCategoryView()
+function editCurrentProduct($name, $image, $price, $description, $category_id, $product_id)
+{
+    global $conn;
+    $query_course = mysqli_query($conn, "UPDATE products SET `name`='$name',`image`='$image', `price`='$price', `description`='$description', `category_id` = '$category_id' WHERE id= $product_id");
+    if ($query_course) {
+        header('Location: /index.php?pages=product&action=list');
+    }
+}
+
+function deleteCurrentProduct()
+{
+    global $conn;
+
+    $product_id = mysqli_real_escape_string($conn, $_POST['deteleProduct']);
+
+    $query = "SELECT * FROM products WHERE id = $product_id";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $query = "DELETE FROM products WHERE id = $product_id";
+    $sql = mysqli_query($conn, $query);
+    if ($sql) {
+        header('Location: /index.php?pages=product&action=list');
+    }
+}
+
+function displayCategoryView()
 {
     global $conn;
     $select_category_id = mysqli_query($conn, "SELECT * FROM category");
@@ -162,7 +187,7 @@ function DisplayCategoryView()
     }
 }
 
-function CreateNewCategory($category_name, $category_note)
+function createNewCategory($category_name, $category_note)
 {
     global $conn;
     $query_category = mysqli_query($conn, "INSERT INTO category (category_name, category_note) VALUES ('$category_name', '$category_note')");
@@ -174,7 +199,16 @@ function CreateNewCategory($category_name, $category_note)
     }
 }
 
-function DeleteCurrentCategory()
+function editCurrentCategory($category_name, $category_note, $category_id)
+{
+    global $conn;
+    $query_course = mysqli_query($conn, "UPDATE category SET category_name='$category_name', category_note = '$category_note'  WHERE id= $category_id");
+    if ($query_course) {
+        header('Location: /index.php?pages=category&action=list');
+    }
+}
+
+function deleteCurrentCategory()
 {
     global $conn;
     $category_id = mysqli_real_escape_string($conn, $_POST['deleteCategory']);
@@ -185,22 +219,5 @@ function DeleteCurrentCategory()
     $sql = mysqli_query($conn, $query);
     if ($sql) {
         header('Location: /index.php?pages=category&action=list');
-    }
-}
-
-
-function DeleteCurrentProduct()
-{
-    global $conn;
-
-    $product_id = mysqli_real_escape_string($conn, $_POST['deleteCourse']);
-
-    $query = "SELECT * FROM products WHERE id = $product_id";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
-    $query = "DELETE FROM products WHERE id = $product_id";
-    $sql = mysqli_query($conn, $query);
-    if ($sql) {
-        header('Location: /index.php?pages=product&action=list');
     }
 }

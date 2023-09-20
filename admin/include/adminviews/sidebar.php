@@ -15,11 +15,11 @@
                 <ul id="sidebarnav">
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">Trang chủ</span>
+                        <span class="hide-menu">Quản Lý</span>
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="./index.php?pages=admin&action=dashboard" aria-expanded="false">
-                            <span class="hide-menu">Điều khiển</span>
+                            <span class="hide-menu">Thống Kê</span>
                         </a>
                     </li>
 
