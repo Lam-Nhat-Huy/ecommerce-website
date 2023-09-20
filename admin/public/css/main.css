@@ -11,3 +11,7 @@ ul {
 .btn-primary {
     background-color: #5D87FF !important;
 }
+
+.text-success {
+    color: greenyellow !important;
+}

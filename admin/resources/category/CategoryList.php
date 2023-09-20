@@ -37,7 +37,7 @@
                                 <td>
                                     <?= $row['category_name'] ?>
                                 </td>
-                                <td>
+                                <td class="text-success">
                                     <?= $row['category_note'] ?>
                                 </td>
                                 <td>
