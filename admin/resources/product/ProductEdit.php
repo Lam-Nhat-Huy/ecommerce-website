@@ -31,7 +31,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="">Hình Ảnh: </label>
+<<<<<<< HEAD
                         <input type="file" class="form-control" name="image" value="<?= $select_course['image'] ?>">
+=======
+                        <input type="text" class="form-control" name="image" value="<?= $select_course['image'] ?>" required>
+>>>>>>> parent of 2e1dba2 (update chức năng edit vẫn giữ nguyên hình ảnh cũ)
                         <div class="invalid-feedback">
                             Hình ảnh không được để trống.
                         </div>
@@ -60,7 +64,7 @@
 
                     </div>
                     <div class="mb-3">
-                        <button type="submit" name="editProduct" class="btn btn-primary"><i class="fas fa-save"></i>
+                        <button type="submit" name="updateProduct" class="btn btn-primary"><i class="fas fa-save"></i>
                         </button>
                     </div>
                 </form>
