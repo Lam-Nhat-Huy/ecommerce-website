@@ -189,7 +189,6 @@ function DeleteCurrentCategory()
 }
 
 
-
 function DeleteCurrentProduct()
 {
     global $conn;
@@ -204,9 +203,4 @@ function DeleteCurrentProduct()
     if ($sql) {
         header('Location: /index.php?pages=product&action=list');
     }
-}
-
-function productListViews()
-{
-    global $conn;
 }
