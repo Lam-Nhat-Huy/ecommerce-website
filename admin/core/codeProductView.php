@@ -16,7 +16,7 @@ if (isset($_POST['addProduct'])) {
     createNewProduct($name, $image, $price, $description, $category_id);
 }
 
-if (isset($_POST['editProduct'])) {
+if (isset($_POST['updateProduct'])) {
     $product_id =  mysqli_real_escape_string($conn, $_POST['product_id']);
     $name =  mysqli_real_escape_string($conn, $_POST['name']);
     $image =  mysqli_real_escape_string($conn, $_POST['image']);
