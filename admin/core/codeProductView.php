@@ -37,7 +37,7 @@ if (isset($_POST['updateProduct'])) {
     if (!empty($_FILES['image']['name'])) {
         $image =  mysqli_real_escape_string($conn, $_FILES['image']['name']);
         // Di chuyển hình ảnh đã tải lên vào thư mục đích
-        move_uploaded_file($_FILES['image']['tmp_name'], "path/to/your/images/directory/" . $image);
+        move_uploaded_file($_FILES['image']['tmp_name'], "./admin/upload/" . $image);
     } else {
         // Nếu không có hình ảnh mới, sử dụng hình ảnh hiện tại
         $image = mysqli_real_escape_string($conn, $_POST['current_image']);

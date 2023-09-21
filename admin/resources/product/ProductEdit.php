@@ -11,7 +11,7 @@
         </h4>
         <div class="card-body">
             <?php
-            $product_id = mysqli_real_escape_string($conn, $_GET['id']);
+            $product_id = getIdFromCurrentUrl();
             $query = "SELECT * FROM products WHERE id = $product_id";
             $sql = mysqli_query($conn, $query);
 
