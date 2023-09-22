@@ -35,6 +35,12 @@
                         </a>
                     </li>
 
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="./index.php?pages=product&action=pagnatison" aria-expanded="false">
+                            <span class="hide-menu">Hi</span>
+                        </a>
+                    </li>
+
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                         <span class="hide-menu">AUTH</span>
