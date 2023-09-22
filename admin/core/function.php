@@ -89,14 +89,20 @@ function paginationPage()
 
             </td>
         </tr>
+
+
         <?php
     }
 
     $number_of_pages = ceil($number_of_results / $result_per_page);
 
+    echo '<div style="text-align: center;">';
     for ($i = 1; $i <= $number_of_pages; $i++) {
-        echo '<a href="index.php?pages=product&action=list&id= ' . $i . '">' . $i . '</a>';
+        echo '
+                <a class="pageni-link" href="index.php?pages=product&action=list&id= ' . $i . '" style="display: inline-block; padding: 4px 10px; margin-right: 4px; border-radius: 5px; border: 1px solid #ddd; background-color: #f8f8f8; text-decoration: none; color: black;">' . $i . '</a>
+            ';
     }
+    echo '</div>';
 }
 
 function registerAdmin($username, $email, $password, $role_id, $cpassword)
