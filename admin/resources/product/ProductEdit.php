@@ -52,7 +52,7 @@
                         <label class="form-label">Thể loại</label>
                         <select class="form-select" name="category_id" required aria-label=".form-select-sm example">
                             <?php
-                            DisplayCategoryView();
+                            displayCategoryView();
                             ?>
                         </select>
 
