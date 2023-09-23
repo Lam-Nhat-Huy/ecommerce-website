@@ -61,7 +61,9 @@ if (isset($_POST['updateCategory'])) {
     $category_id =  mysqli_real_escape_string($conn, $_POST['category_id']);
     $category_name =  mysqli_real_escape_string($conn, $_POST['category_name']);
     $category_note =  mysqli_real_escape_string($conn, $_POST['category_note']);
-    editCurrentCategory($category_name, $category_note, $category_id);
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    $update_at = date('Y-m-d H:i:s');
+    editCurrentCategory($category_name, $category_note, $category_id, $update_at);
 }
 
 if (isset($_POST['deleteCategory'])) {

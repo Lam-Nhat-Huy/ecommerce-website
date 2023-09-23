@@ -256,10 +256,10 @@ function createNewCategory($category_name, $category_note)
     }
 }
 
-function editCurrentCategory($category_name, $category_note, $category_id)
+function editCurrentCategory($category_name, $category_note, $category_id, $update_at)
 {
     global $conn;
-    $query_course = mysqli_query($conn, "UPDATE category SET category_name='$category_name', category_note = '$category_note'  WHERE id= $category_id");
+    $query_course = mysqli_query($conn, "UPDATE category SET category_name='$category_name', category_note = '$category_note', update_at='$update_at'  WHERE id= $category_id");
     if ($query_course) {
         header('Location: /index.php?pages=category&action=list');
     }
