@@ -45,7 +45,7 @@ function saveUser()
     echo $fetchUser['username'];
 }
 
-function paginationPage()
+function paginationProduct()
 {
     global $conn;
 
@@ -84,6 +84,66 @@ function paginationPage()
 
                 <form action="./index.php?pages=execution-3" method="post">
                     <button onclick="return confirm('Bạn có chắc chắn muốn xóa? ')" type="submit" class="btn btn-danger mb-1" name="deteleProduct" value="<?= $fetch_product['id'] ?>"><i class="fas fa-trash-alt"></i>
+                    </button>
+                </form>
+
+            </td>
+        </tr>
+
+
+    <?php
+    }
+
+    $number_of_pages = ceil($number_of_results / $result_per_page);
+
+    echo '<div style="text-align: center;">';
+    for ($i = 1; $i <= $number_of_pages; $i++) {
+        echo '
+                <a class="pageni-link" href="index.php?pages=product&action=list&id= ' . $i . '" style="display: inline-block; padding: 4px 10px; margin-right: 4px; border-radius: 5px; border: 1px solid #ddd; background-color: #f8f8f8; text-decoration: none; color: black;">' . $i . '</a>
+            ';
+    }
+    echo '</div>';
+}
+
+function paginationEmployee()
+{
+    global $conn;
+
+    $result_per_page = 4;
+    $sql = "SELECT * FROM employee";
+    $result = mysqli_query($conn, $sql);
+    $number_of_results =  mysqli_num_rows($result);
+
+    if (!isset($_GET['id'])) {
+        $page = 1;
+    } else {
+        $page = $_GET['id'];
+    }
+
+    $this_page_first_result = ($page - 1) * $result_per_page;
+
+    $sql = "SELECT * FROM employee LIMIT " . $this_page_first_result . ',' . $result_per_page;
+    $result = mysqli_query($conn, $sql);
+    while ($fetch_employee = mysqli_fetch_array($result)) {
+    ?>
+        <tr style="vertical-align: middle;">
+            <td><?= $fetch_employee['id'] ?></td>
+            <td><?= $fetch_employee['username'] ?></td>
+            <td><?= $fetch_employee['gender'] ?></td>
+            <td>
+                <img src="./admin/upload/employee/<?= $fetch_employee['image'] ?>" alt="" width="100px">
+            </td>
+            <td class="text-danger"><?= $fetch_employee['email']; ?></td>
+            <td class="td-width text-success"><?= $fetch_employee['phone'] ?></td>
+            <td><?= $fetch_employee['cccd'] ?></td>
+            <td><?= $fetch_employee['address'] ?></td>
+
+            <td class="p-4">
+                <a href="./index.php?pages=employee&action=edit&id=<?= $fetch_employee['id'] ?>" class="btn btn-primary mb-1"><i class="fas fa-pencil-alt"></i>
+                </a>
+
+                <form action="./index.php?pages=execution-3" method="post">
+                    <button onclick="return confirm('Bạn có chắc chắn muốn xóa? ')" type="submit" class="btn btn-danger mb-1" name="deteleEmployee" value="<?= $fetch_employee['id'] ?>"><i class="fas fa-trash-alt"></i>
                     </button>
                 </form>
 

@@ -27,7 +27,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    paginationPage();
+                    paginationProduct();
                     ?>
                 </tbody>
             </table>

@@ -66,7 +66,7 @@
                                                 <div class="form-outline mb-3">
                                                     <label class="form-label" for="form3Example8">Giới tính</label>
                                                     <select class="form-control" name="gender">
-                                                        <option value="Name">Nam</option>
+                                                        <option value="Nam">Nam</option>
                                                         <option value="Nữ">Nữ</option>
                                                         <option value="Khác">Khác</option>
                                                     </select>

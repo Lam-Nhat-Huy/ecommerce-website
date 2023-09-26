@@ -72,7 +72,7 @@ if (isset($_GET['pages'])) {
                 case 'add':
                     include './admin/resources/employee/EmployeeAdd.php';
                     break;
-                case 'list':
+                case 'edit':
                     include './admin/resources/employee/EmployeeEdit.php';
                     break;
                 default:
