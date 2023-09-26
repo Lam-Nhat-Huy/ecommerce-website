@@ -395,6 +395,8 @@ function updateEmployee($image, $username, $email, $phone, $cccd, $address, $gen
     $checkEmployeeQuery = mysqli_query($conn, "UPDATE employee SET `image` = '$image', `username` = '$username', `email` = '$email', `phone` = '$phone', `cccd` = '$cccd', `address` = '$address', `gender` = '$gender' WHERE `id` = '$employee_id'");
     if ($checkEmployeeQuery) {
         header('Location: ./index.php?pages=employee&action=list');
+    } else {
+        header('Location: ./index.php?pages=employee&action=edit');
     }
 }
 

@@ -19,6 +19,7 @@
             ?>
                 <form action="./index.php?pages=execution-3" method="post" enctype="multipart/form-data" class="needs-validation was-validated">
                     <input type="hidden" name="product_id" value="<?= $product_id ?>">
+                    <input type="hidden" name="current_image" value="<?= $select_course['image'] ?>">
                     <div class="mb-3">
                         <label for="">Tên sản phẩm: </label>
                         <input type="text" class="form-control" name="name" value="<?= $select_course['name'] ?>" required>
@@ -29,7 +30,6 @@
                     <div class="mb-3">
                         <label for="">Hình Ảnh: </label>
                         <input type="file" class="form-control" name="image">
-                        <input type="hidden" name="current_image" value="<?= $select_course['image'] ?>">
                         <div class="invalid-feedback">
                             Hình ảnh không được để trống.
                         </div>
