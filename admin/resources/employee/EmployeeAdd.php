@@ -23,44 +23,62 @@
                                             <a href="./index.php?pages=employee&action=list" class="btn btn-danger float-end"><i class="fas fa-arrow-left"></i></a>
                                             <h3 class="mb-5 text-uppercase">Thêm Nhân Viên Mới</h3>
 
-                                            <form action="./index.php?pages=execution-3" method="post" enctype="multipart/form-data">
+                                            <form action="./index.php?pages=execution-3" method="post" class="needs-validation was-validated" enctype="multipart/form-data">
                                                 <div class="form-outline mb-3">
                                                     <label class="form-label" for="form3Example97">Ảnh Nhân Viên</label>
-                                                    <input type="file" id="form3Example97" class="form-control form-control-lg" name="image" />
+                                                    <input type="file" id="form3Example97" class="form-control form-control-lg" name="image" required />
+                                                    <div class="invalid-feedback">
+                                                        Ảnh không được để trống.
+                                                    </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="col-md-12 mb-3">
                                                         <div class="form-outline">
                                                             <label class="form-label" for="form3Example1m">Tên đầy đủ</label>
-                                                            <input type="text" id="form3Example1m" class="form-control form-control-lg" name="username" />
+                                                            <input type="text" id="form3Example1m" class="form-control form-control-lg" name="username" required />
+                                                            <div class="invalid-feedback">
+                                                                Tên không được để trống.
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-outline mb-3">
                                                     <label class="form-label" for="form3Example97">Email</label>
-                                                    <input type="email" id="form3Example97" class="form-control form-control-lg" name="email" />
+                                                    <input type="email" id="form3Example97" class="form-control form-control-lg" name="email" required />
+                                                    <div class="invalid-feedback">
+                                                        Email không được để trống.
+                                                    </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="col-md-6 mb-3">
                                                         <div class="form-outline">
                                                             <label class="form-label" for="form3Example1m1">Số điện thoại</label>
-                                                            <input type="text" id="form3Example1m1" class="form-control form-control-lg" name="phone" />
+                                                            <input type="text" id="form3Example1m1" class="form-control form-control-lg" name="phone" required />
+                                                            <div class="invalid-feedback">
+                                                                Số điện thoại không được để trống.
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 mb-3">
                                                         <div class="form-outline">
                                                             <label class="form-label" for="form3Example1m1">Căn Cước Công Dân</label>
-                                                            <input type="text" id="form3Example1m1" class="form-control form-control-lg" name="cccd" />
+                                                            <input type="text" id="form3Example1m1" class="form-control form-control-lg" name="cccd" required />
+                                                            <div class="invalid-feedback">
+                                                                CCCD không được để trống.
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-outline mb-3">
                                                     <label class="form-label" for="form3Example8">Địa chỉ</label>
-                                                    <input type="text" id="form3Example8" class="form-control form-control-lg" name="address" />
+                                                    <input type="text" id="form3Example8" class="form-control form-control-lg" name="address" required />
+                                                    <div class="invalid-feedback">
+                                                        Địa chỉ không được để trống.
+                                                    </div>
                                                 </div>
 
                                                 <div class="form-outline mb-3">

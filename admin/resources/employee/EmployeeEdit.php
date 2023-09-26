@@ -21,7 +21,7 @@
                                     <div class="col-xl-6">
                                         <div class="card-body p-md-5 text-black">
                                             <a href="./index.php?pages=employee&action=list" class="btn btn-danger float-end"><i class="fas fa-arrow-left"></i></a>
-                                            <h3 class="mb-5 text-uppercase">Thêm Nhân Viên Mới</h3>
+                                            <h3 class="mb-5 text-uppercase">Chỉnh Sửa Thông Tin</h3>
                                             <?php
                                             $employee_id = getIdFromCurrentUrl();
                                             $checkEmployeeQuery = "SELECT * FROM employee WHERE id = $employee_id";
@@ -68,7 +68,8 @@
                                                         <input type="text" id="form3Example8" class="form-control form-control-lg" name="address" value="<?= $fetch_employee['address'] ?>" />
                                                     </div>
 
-                                                    <select class="form-control" name="gender">
+                                                    <label class="form-label" for="form3Example8">Giới tính</label>
+                                                    <select class="form-control mb-3" name="gender">
                                                         <option value="Nam" <?= $fetch_employee['gender'] == 'Nam' ? 'selected' : '' ?>>Nam</option>
                                                         <option value="Nữ" <?= $fetch_employee['gender'] == 'Nữ' ? 'selected' : '' ?>>Nữ</option>
                                                         <option value="Khác" <?= $fetch_employee['gender'] == 'Khác' ? 'selected' : '' ?>>Khác</option>

@@ -159,7 +159,7 @@ function paginationEmployee()
     echo '<div style="text-align: center;">';
     for ($i = 1; $i <= $number_of_pages; $i++) {
         echo '
-                <a class="pageni-link" href="index.php?pages=product&action=list&id= ' . $i . '" style="display: inline-block; padding: 4px 10px; margin-right: 4px; border-radius: 5px; border: 1px solid #ddd; background-color: #f8f8f8; text-decoration: none; color: black;">' . $i . '</a>
+                <a class="pageni-link" href="index.php?pages=employee&action=list&id= ' . $i . '" style="display: inline-block; padding: 4px 10px; margin-right: 4px; border-radius: 5px; border: 1px solid #ddd; background-color: #f8f8f8; text-decoration: none; color: black;">' . $i . '</a>
             ';
     }
     echo '</div>';

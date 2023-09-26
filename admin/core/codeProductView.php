@@ -87,3 +87,7 @@ if (isset($_POST['addEmployee'])) {
 
     addEmployee($image, $username, $email, $phone, $cccd, $address, $gender);
 }
+
+if (isset($_POST['updateEmployee'])) {
+    header('Location: http://google.com/');
+}

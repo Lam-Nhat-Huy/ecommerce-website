@@ -66,18 +66,20 @@
                 <div class="col-lg-12">
                     <!-- Yearly Breakup -->
                     <div class="card overflow-hidden">
-                        <div class="card-body p-4">
-                            <h5 class="card-title mb-9 fw-semibold">Số Lượng Nhân Viên:</h5>
-                            <div class="row align-items-center">
-                                <div class="col-8">
-                                    <h4 class="fw-semibold mb-3">
-                                        <?php
-                                        countEmployee();
-                                        ?>
-                                    </h4>
+                        <a href="./index.php?pages=employee&action=list" class="text-count" style="color: #000;">
+                            <div class="card-body p-4">
+                                <h5 class="card-title mb-9 fw-semibold">Số Lượng Nhân Viên:</h5>
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h4 class="fw-semibold mb-3">
+                                            <?php
+                                            countEmployee();
+                                            ?>
+                                        </h4>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
