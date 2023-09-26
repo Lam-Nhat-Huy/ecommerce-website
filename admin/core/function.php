@@ -255,14 +255,20 @@ function getIdFromCurrentUrl()
     }
 }
 
-function createNewProduct($name, $image, $price, $description, $category_id)
+function addNewProduct($name, $image, $price, $description, $category_id)
 {
     global $conn;
-    if (!empty($name) or !empty($image) or !empty($price) or !empty($description) or !empty($category_id)) {
-        $query_product = mysqli_query($conn, "INSERT INTO products (name, image, price, description, category_id) VALUES ('$name', '$image', '$price', '$description', '$category_id')");
-        header('Location: /index.php?pages=product&action=list');
+    $checkProductQuery = "INSERT INTO products (name, image, price, description, category_id) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($checkProductQuery);
+    if ($stmt === false) {
+        die("Error:"  . $conn->error);
     } else {
-        header('Location: /index.php?pages=product&action=add');
+        header('Location: ./index.php?pages=product&action=list');
+    }
+    $stmt->bind_param('sssss', $name, $image, $price, $description, $category_id);
+    $checkProductResult = $stmt->execute();
+    if (!isset($checkProductResult)) {
+        header('Location: /index.php?pages=products&action=add');
     }
 }
 
@@ -291,15 +297,20 @@ function deleteCurrentProduct()
     }
 }
 
-function createNewCategory($category_name, $category_note)
+function addNewCategory($category_name, $category_note)
 {
     global $conn;
-    $query_category = mysqli_query($conn, "INSERT INTO category (category_name, category_note) VALUES ('$category_name', '$category_note')");
-
-    if ($query_category) {
-        header("Location: /index.php?pages=category&action=list");
+    $checkCategoryQuery = "INSERT INTO category (category_name, category_note) VALUES (?, ?)";
+    $stmt = $conn->prepare($checkCategoryQuery);
+    if ($stmt === false) {
+        die("Error:"  . $conn->error);
     } else {
-        header("Location: /index.php?pages=category&action=add");
+        header('Location: ./index.php?pages=category&action=list');
+    }
+    $stmt->bind_param('ss', $category_name, $category_note);
+    $checkCategoryResult = $stmt->execute();
+    if (!isset($checkCategoryResult)) {
+        header('Location: /index.php?pages=products&action=add');
     }
 }
 

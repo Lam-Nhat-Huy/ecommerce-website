@@ -13,7 +13,8 @@ if (isset($_POST['addProduct'])) {
 
     $targetPath = $targetDirectory . $image;
     move_uploaded_file($image_tmp, $targetPath);
-    createNewProduct($name, $image, $price, $description, $category_id);
+    // createNewProduct($name, $image, $price, $description, $category_id);
+    addNewProduct($name, $image, $price, $description, $category_id);
 }
 
 if (isset($_POST['updateProduct'])) {
@@ -44,7 +45,7 @@ if (isset($_POST['deteleProduct'])) {
 if (isset($_POST['addCategory'])) {
     $category_name = mysqli_real_escape_string($conn, $_POST['category_name']);
     $category_note = mysqli_real_escape_string($conn, $_POST['category_note']);
-    createNewCategory($category_name, $category_note);
+    addNewCategory($category_name, $category_note);
 }
 
 if (isset($_POST['updateCategory'])) {
