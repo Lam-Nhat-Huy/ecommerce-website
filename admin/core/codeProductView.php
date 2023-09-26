@@ -95,7 +95,7 @@ if (isset($_POST['updateEmployee'])) {
         // Nếu không có hình ảnh mới, sử dụng hình ảnh hiện tại
         $image = mysqli_real_escape_string($conn, $_POST['current_image']);
     }
-    updateEmployee($image, $username, $email, $phone, $cccd, $address, $gender, $employee_id);
+    editEmployee($image, $username, $email, $phone, $cccd, $address, $gender, $employee_id);
 }
 
 

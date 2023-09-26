@@ -400,6 +400,22 @@ function updateEmployee($image, $username, $email, $phone, $cccd, $address, $gen
     }
 }
 
+function editEmployee($image, $username, $email, $phone, $cccd, $address, $gender, $employee_id)
+{
+    global $conn;
+    $checkEmployeeQuery = "UPDATE employee SET `image` = '$image', `username` = '$username', `email` = '$email', `phone` = '$phone', `cccd` = '$cccd', `address` = '$address', `gender` = '$gender' WHERE `id` = '$employee_id'";
+    $stmt = $conn->prepare($checkEmployeeQuery);
+    if ($stmt === false) {
+        die("Error: " . $conn->error);
+    } else {
+        header('Location: ./index.php?pages=employee&action=list');
+    }
+    if ($stmt->execute()) {
+        echo "Sửa thông tin nhân viên thành công";
+    } else {
+        echo "Lỗi: " . $stmt->error;
+    }
+}
 
 function deleteCurrentEmployee()
 {

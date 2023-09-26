@@ -80,5 +80,19 @@ if (isset($_GET['pages'])) {
                     break;
             }
             break;
+
+        case 'inventory':
+            switch ($_GET['action']) {
+                case 'add':
+                    include './admin/resources/inventory/InventoryAdd.php';
+                    break;
+                case 'edit':
+                    include './admin/resources/inventory/InventoryEdit.php';
+                    break;
+                default:
+                    include './admin/resources/inventory/InventoryAdd.php';
+                    break;
+            }
+            break;
     }
 }
