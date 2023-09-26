@@ -40,10 +40,10 @@
                                 <td class="text-success">
                                     <?= $row['category_note'] ?>
                                 </td>
-                                <td>
+                                <td class="text-danger">
                                     <?= $row['create_at'] ?>
                                 </td>
-                                <td>
+                                <td class="text-success">
                                     <?= $row['update_at'] ?>
                                 </td>
                                 <td class="d-flex justify-content-evenly">

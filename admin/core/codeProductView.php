@@ -69,3 +69,21 @@ if (isset($_POST['updateCategory'])) {
 if (isset($_POST['deleteCategory'])) {
     deleteCurrentCategory();
 }
+
+
+if (isset($_POST['addEmployee'])) {
+    $image = $_FILES['image']['name'];
+    $image_tmp = $_FILES['image']['tmp_name'];
+    $targetDirectory = "./admin/upload/employee/";
+    $targetPath = $targetDirectory . $image;
+    move_uploaded_file($image_tmp, $targetPath);
+
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+    $cccd = mysqli_real_escape_string($conn, $_POST['cccd']);
+    $address = mysqli_real_escape_string($conn, $_POST['address']);
+    $gender = mysqli_real_escape_string($conn, $_POST['gender']);
+
+    addEmployee($image, $username, $email, $phone, $cccd, $address, $gender);
+}

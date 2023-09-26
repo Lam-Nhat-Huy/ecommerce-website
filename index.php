@@ -63,5 +63,22 @@ if (isset($_GET['pages'])) {
                     break;
             }
             break;
+
+        case 'employee':
+            switch ($_GET['action']) {
+                case 'list':
+                    include './admin/resources/employee/EmployeeList.php';
+                    break;
+                case 'add':
+                    include './admin/resources/employee/EmployeeAdd.php';
+                    break;
+                case 'list':
+                    include './admin/resources/employee/EmployeeEdit.php';
+                    break;
+                default:
+                    include './admin/resources/employee/EmployeeList.php';
+                    break;
+            }
+            break;
     }
 }

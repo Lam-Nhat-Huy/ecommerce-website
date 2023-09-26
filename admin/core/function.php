@@ -49,7 +49,7 @@ function paginationPage()
 {
     global $conn;
 
-    $result_per_page = 4;
+    $result_per_page = 5;
     $sql = "SELECT c.id, c.name, c.image, c.image, c.price, c.description, ct.category_name, ct.category_note
     FROM products c, category ct WHERE c.category_id = ct.id";
     $result = mysqli_query($conn, $sql);
@@ -91,7 +91,7 @@ function paginationPage()
         </tr>
 
 
-        <?php
+<?php
     }
 
     $number_of_pages = ceil($number_of_results / $result_per_page);
@@ -231,19 +231,6 @@ function deleteCurrentProduct()
     }
 }
 
-function displayCategoryView()
-{
-    global $conn;
-    $select_category_id = mysqli_query($conn, "SELECT * FROM category");
-    if (mysqli_num_rows($select_category_id) > 0) {
-        while ($row = mysqli_fetch_array($select_category_id)) {
-        ?>
-            <option value="<?= $row['id'] ?>"><?= $row['category_name'] ?></option>
-<?php
-        }
-    }
-}
-
 function createNewCategory($category_name, $category_note)
 {
     global $conn;
@@ -277,4 +264,67 @@ function deleteCurrentCategory()
     if ($sql) {
         header('Location: /index.php?pages=category&action=list');
     }
+}
+
+function countProduct()
+{
+    global $conn;
+    $checkProductQuery = "SELECT COUNT(*) FROM products";
+    $checkProductResult = $conn->query($checkProductQuery);
+    if (mysqli_num_rows($checkProductResult) > 0) {
+        while ($row = mysqli_fetch_assoc($checkProductResult)) {
+            echo $row['COUNT(*)'];
+        }
+    }
+}
+
+
+function countCategory()
+{
+    global $conn;
+    $checkCategoryQuery = "SELECT COUNT(*) FROM category";
+    $checkCategoryResult = $conn->query($checkCategoryQuery);
+    if (mysqli_num_rows($checkCategoryResult) > 0) {
+        while ($row = mysqli_fetch_assoc($checkCategoryResult)) {
+            echo $row['COUNT(*)'];
+        }
+    }
+}
+
+
+function countEmployee()
+{
+    global $conn;
+    $checkEmployeeQuery = "SELECT COUNT(*) FROM employee";
+    $checkEmployeeResult = $conn->query($checkEmployeeQuery);
+    if (mysqli_num_rows($checkEmployeeResult) > 0) {
+        while ($row = mysqli_fetch_assoc($checkEmployeeResult)) {
+            echo $row['COUNT(*)'];
+        }
+    }
+}
+
+function addEmployee($image, $username, $email, $phone, $cccd, $address, $gender)
+{
+    global $conn;
+
+    // Chuẩn bị câu lệnh SQL
+    $stmt = $conn->prepare("INSERT INTO employee (image, username, email, phone, cccd, address, gender) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    if ($stmt === false) {
+        die("Error: " . $conn->error);
+    } else {
+        header('Location: ./index.php?pages=employee&action=list');
+    }
+    $stmt->bind_param("sssssss", $image, $username, $email, $phone, $cccd, $address, $gender);
+
+    // Thực thi câu lệnh
+    if ($stmt->execute()) {
+        echo "<script>alert('Thêm Nhân Viên Thành Công')</script>";
+    } else {
+        echo "Lỗi: " . $stmt->error;
+    }
+
+    // Đóng kết nối
+    $stmt->close();
+    $conn->close();
 }
