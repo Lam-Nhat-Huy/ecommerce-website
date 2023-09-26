@@ -66,7 +66,7 @@
                 <div class="col-lg-12">
                     <!-- Yearly Breakup -->
                     <div class="card overflow-hidden">
-                        <a href="./index.php?pages=employee&action=list" class="text-count" style="color: #000;">
+                        <a href="./index.php?pages=employees&action=list" class="text-count" style="color: #000;">
                             <div class="card-body p-4">
                                 <h5 class="card-title mb-9 fw-semibold">Số Lượng Nhân Viên:</h5>
                                 <div class="row align-items-center">

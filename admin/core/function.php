@@ -143,7 +143,7 @@ function paginationEmployee()
                 </a>
 
                 <form action="./index.php?pages=execution-3" method="post">
-                    <button onclick="return confirm('Bạn có chắc chắn muốn xóa? ')" type="submit" class="btn btn-danger mb-1" name="deteleEmployee" value="<?= $fetch_employee['id'] ?>"><i class="fas fa-trash-alt"></i>
+                    <button onclick="return confirm('Bạn có chắc chắn muốn xóa? ')" type="submit" class="btn btn-danger mb-1" name="deleteEmployee" value="<?= $fetch_employee['id'] ?>"><i class="fas fa-trash-alt"></i>
                     </button>
                 </form>
 
@@ -379,7 +379,7 @@ function addEmployee($image, $username, $email, $phone, $cccd, $address, $gender
 
     // Thực thi câu lệnh
     if ($stmt->execute()) {
-        echo "<script>alert('Thêm Nhân Viên Thành Công')</script>";
+        echo "Thêm nhân viên thành công";
     } else {
         echo "Lỗi: " . $stmt->error;
     }
@@ -387,4 +387,30 @@ function addEmployee($image, $username, $email, $phone, $cccd, $address, $gender
     // Đóng kết nối
     $stmt->close();
     $conn->close();
+}
+
+function updateEmployee($image, $username, $email, $phone, $cccd, $address, $gender, $employee_id)
+{
+    global $conn;
+    $checkEmployeeQuery = mysqli_query($conn, "UPDATE employee SET `image` = '$image', `username` = '$username', `email` = '$email', `phone` = '$phone', `cccd` = '$cccd', `address` = '$address', `gender` = '$gender' WHERE `id` = '$employee_id'");
+    if ($checkEmployeeQuery) {
+        header('Location: ./index.php?pages=employee&action=list');
+    }
+}
+
+
+function deleteCurrentEmployee()
+{
+    global $conn;
+
+    $employee_id = mysqli_real_escape_string($conn, $_POST['deleteEmployee']);
+
+    $query = "SELECT * FROM employee WHERE id = $employee_id";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $query = "DELETE FROM employee WHERE id = $employee_id";
+    $sql = mysqli_query($conn, $query);
+    if ($sql) {
+        header('Location: /index.php?pages=employee&action=list');
+    }
 }

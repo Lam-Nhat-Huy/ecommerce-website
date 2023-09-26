@@ -29,6 +29,10 @@
                                             while ($fetch_employee = mysqli_fetch_array($checkEmployeeResult)) {
                                             ?>
                                                 <form action="./index.php?pages=execution-3" method="post" enctype="multipart/form-data">
+                                                    <input type="hidden" name="employee_id" value="<?= $employee_id ?>">
+                                                    <input type="hidden" name="current_image" value="<?php echo $fetch_employee['image']; ?>">
+
+
                                                     <div class="form-outline mb-3">
                                                         <label class="form-label" for="form3Example97">Ảnh Nhân Viên</label>
                                                         <input type="file" id="form3Example97" class="form-control form-control-lg" name="image" />
@@ -77,7 +81,7 @@
 
 
                                                     <div class="d-flex justify-content-end">
-                                                        <button type="submit" name="addEmployee" class="btn btn-primary"><i class="fas fa-save"></i></button>
+                                                        <button type="submit" name="updateEmployee" class="btn btn-primary"><i class="fas fa-save"></i></button>
                                                     </div>
 
                                                 </form>
