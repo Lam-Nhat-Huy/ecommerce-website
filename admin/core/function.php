@@ -350,6 +350,41 @@ function countProduct()
     }
 }
 
+function countProductTee()
+{
+    global $conn;
+    $checkProductQuery = "SELECT COUNT(*) FROM products WHERE category_id = 12";
+    $checkProductResult = $conn->query($checkProductQuery);
+    if (mysqli_num_rows($checkProductResult) > 0) {
+        while ($row = mysqli_fetch_assoc($checkProductResult)) {
+            echo $row['COUNT(*)'];
+        }
+    }
+}
+
+function countProductPolo()
+{
+    global $conn;
+    $checkProductQuery = "SELECT COUNT(*) FROM products WHERE category_id = 13";
+    $checkProductResult = $conn->query($checkProductQuery);
+    if (mysqli_num_rows($checkProductResult) > 0) {
+        while ($row = mysqli_fetch_assoc($checkProductResult)) {
+            echo $row['COUNT(*)'];
+        }
+    }
+}
+
+function countProductSomi()
+{
+    global $conn;
+    $checkProductQuery = "SELECT COUNT(*) FROM products WHERE category_id = 14";
+    $checkProductResult = $conn->query($checkProductQuery);
+    if (mysqli_num_rows($checkProductResult) > 0) {
+        while ($row = mysqli_fetch_assoc($checkProductResult)) {
+            echo $row['COUNT(*)'];
+        }
+    }
+}
 
 function countCategory()
 {
