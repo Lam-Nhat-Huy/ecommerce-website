@@ -29,18 +29,18 @@
             </div>
             <div class="mb-3">
                 <label for="">Giá: </label>
-                <input type="number" min="0" class="form-control" name="inventory" required>
+                <input type="number" min="0" class="form-control" name="price" required>
                 <div class="invalid-feedback">
                     Giá không được để trống.
                 </div>
             </div>
-            <!-- <div class="mb-3">
+            <div class="mb-3">
                 <label for="">Số Lượng: </label>
-                <input type="number" min="0" class="form-control" name="price" required>
+                <input type="number" min="0" class="form-control" name="inventory" required>
                 <div class="invalid-feedback">
                     Số lượng không được để trống.
                 </div>
-            </div> -->
+            </div>
             <div class="mb-3">
                 <label for="">Mô Tả: </label>
                 <input type="text" class="form-control" name="description" required>

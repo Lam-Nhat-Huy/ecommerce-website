@@ -20,8 +20,9 @@
                         <td>Tên Khóa Học</td>
                         <td>Hình Ảnh</td>
                         <td>Giá</td>
+                        <td>Số Lượng</td>
                         <td>Trạng Thái</td>
-                        <td>Phân loại</td>
+                        <td>Phân Loại</td>
                         <td>Tùy Chọn</td>
                     </tr>
                 </thead>

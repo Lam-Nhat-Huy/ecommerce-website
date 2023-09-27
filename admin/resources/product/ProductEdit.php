@@ -42,6 +42,13 @@
                         </div>
                     </div>
                     <div class="mb-3">
+                        <label for="">Số Lượng: </label>
+                        <input type="number" min="0" class="form-control" name="inventory" value="<?= $select_course['inventory'] ?>" required>
+                        <div class="invalid-feedback">
+                            Số Lượng không được để trống.
+                        </div>
+                    </div>
+                    <div class="mb-3">
                         <label for="">Mô tả: </label>
                         <input type="text" class="form-control" name="description" value="<?= $select_course['description'] ?>" required>
                         <div class="invalid-feedback">

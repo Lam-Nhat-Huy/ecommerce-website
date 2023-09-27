@@ -5,6 +5,7 @@ if (isset($_POST['addProduct'])) {
     $image = $_FILES['image']['name'];
     $image_tmp = $_FILES['image']['tmp_name'];
     $price =  mysqli_real_escape_string($conn, $_POST['price']);
+    $inventory =  mysqli_real_escape_string($conn, $_POST['inventory']);
 
     $description =  mysqli_real_escape_string($conn, $_POST['description']);
     $category_id =  mysqli_real_escape_string($conn, $_POST['category_id']);
@@ -14,13 +15,14 @@ if (isset($_POST['addProduct'])) {
     $targetPath = $targetDirectory . $image;
     move_uploaded_file($image_tmp, $targetPath);
     // createNewProduct($name, $image, $price, $description, $category_id);
-    addNewProduct($name, $image, $price, $description, $category_id);
+    addNewProduct($name, $image, $price,  $inventory, $description, $category_id);
 }
 
 if (isset($_POST['updateProduct'])) {
     $product_id =  mysqli_real_escape_string($conn, $_POST['product_id']);
     $name =  mysqli_real_escape_string($conn, $_POST['name']);
     $price =  mysqli_real_escape_string($conn, $_POST['price']);
+    $inventory =  mysqli_real_escape_string($conn, $_POST['inventory']);
     $description =  mysqli_real_escape_string($conn, $_POST['description']);
     $category_id =  mysqli_real_escape_string($conn, $_POST['category_id']);
 
@@ -34,7 +36,7 @@ if (isset($_POST['updateProduct'])) {
         $image = mysqli_real_escape_string($conn, $_POST['current_image']);
     }
 
-    editCurrentProduct($name, $image, $price, $description, $category_id, $product_id);
+    editCurrentProduct($name, $image, $price, $inventory, $description, $category_id, $product_id);
 }
 
 

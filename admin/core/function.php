@@ -63,7 +63,7 @@ function paginationProduct()
 
     $this_page_first_result = ($page - 1) * $result_per_page;
 
-    $sql = "SELECT c.id, c.name, c.image, c.image, c.price, c.description, ct.category_name, ct.category_note
+    $sql = "SELECT c.id, c.name, c.image, c.image, c.price, c.inventory, c.description, ct.category_name, ct.category_note
     FROM products c, category ct WHERE c.category_id = ct.id LIMIT " . $this_page_first_result . ',' . $result_per_page;
     $result = mysqli_query($conn, $sql);
     while ($fetch_product = mysqli_fetch_array($result)) {
@@ -75,6 +75,7 @@ function paginationProduct()
                 <img src="./admin/upload/<?= $fetch_product['image'] ?>" alt="" width="100px">
             </td>
             <td class="text-danger"><?= currency_format($fetch_product['price']); ?></td>
+            <td class="text-info"><?= $fetch_product['inventory']; ?></td>
             <td class="td-width text-success"><?= $fetch_product['category_note'] ?></td>
             <td><?= $fetch_product['category_name'] ?></td>
 
@@ -255,27 +256,27 @@ function getIdFromCurrentUrl()
     }
 }
 
-function addNewProduct($name, $image, $price, $description, $category_id)
+function addNewProduct($name, $image, $price, $inventory, $description, $category_id)
 {
     global $conn;
-    $checkProductQuery = "INSERT INTO products (name, image, price, description, category_id) VALUES (?, ?, ?, ?, ?)";
+    $checkProductQuery = "INSERT INTO products (name, image, price, inventory,description, category_id) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($checkProductQuery);
     if ($stmt === false) {
         die("Error:"  . $conn->error);
     } else {
         header('Location: ./index.php?pages=product&action=list');
     }
-    $stmt->bind_param('sssss', $name, $image, $price, $description, $category_id);
+    $stmt->bind_param('ssssss', $name, $image, $price, $inventory, $description, $category_id);
     $checkProductResult = $stmt->execute();
     if (!isset($checkProductResult)) {
         header('Location: /index.php?pages=products&action=add');
     }
 }
 
-function editCurrentProduct($name, $image, $price, $description, $category_id, $product_id)
+function editCurrentProduct($name, $image, $price, $inventory, $description, $category_id, $product_id)
 {
     global $conn;
-    $query_course = mysqli_query($conn, "UPDATE products SET `name`='$name',`image`='$image', `price`='$price', `description`='$description', `category_id` = '$category_id' WHERE id= $product_id");
+    $query_course = mysqli_query($conn, "UPDATE products SET `name`='$name',`image`='$image', `price`='$price', `inventory` = '$inventory', `description`='$description', `category_id` = '$category_id' WHERE id= $product_id");
     if ($query_course) {
         header('Location: /index.php?pages=product&action=list');
     }
