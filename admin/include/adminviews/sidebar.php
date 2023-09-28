@@ -70,11 +70,11 @@
                     </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
+                        <a class="sidebar-link" href="?pages=client&action=index" aria-expanded="false">
                             <span>
                                 <i class="ti ti-user-plus"></i>
                             </span>
-                            <span class="hide-menu">Đăng Ký</span>
+                            <span class="hide-menu">Client</span>
                         </a>
                     </li>
 

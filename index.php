@@ -1,6 +1,7 @@
 <?php
 require_once './config/database.php';
 require('./admin/core/function.php');
+require('./client/core/FunctionClient.php');
 
 if (isset($_GET['pages'])) {
     switch ($_GET['pages']) {
@@ -91,6 +92,17 @@ if (isset($_GET['pages'])) {
                     break;
                 default:
                     include './admin/resources/salary/SalaryAdd.php';
+                    break;
+            }
+            break;
+
+        case 'client':
+            switch ($_GET['action']) {
+                case 'index':
+                    include './client/index.php';
+                    break;
+                case 'detail':
+                    include './client/include/SingleProductLayout.php';
                     break;
             }
             break;
