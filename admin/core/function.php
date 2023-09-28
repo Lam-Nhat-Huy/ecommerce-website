@@ -479,3 +479,27 @@ function deleteCurrentEmployee()
         header('Location: /index.php?pages=employee&action=list');
     }
 }
+
+function addSalary($employee_id, $salary)
+{
+    global $conn;
+    $checkSalaryQuery = "INSERT INTO salary (salary, employee_id) VALUES (?, ?)";
+    $stmt = $conn->prepare($checkSalaryQuery);
+    if ($stmt === false) {
+        die("Error: " . $conn->error);
+    } else {
+        header('Location: ./index.php?pages=salary&action=add');
+    }
+    $stmt->bind_param('ss',  $salary, $employee_id);
+    $checkSalaryResult = $stmt->execute();
+    // Thực thi câu lệnh
+    if ($checkSalaryResult) {
+        echo "Thành công";
+    } else {
+        echo "Lỗi: " . $stmt->error;
+    }
+
+    // Đóng kết nối
+    $stmt->close();
+    $conn->close();
+}

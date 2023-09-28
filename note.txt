@@ -1,0 +1,3 @@
+SELECT employee.id, employee.username,employee.image, employee.email, employee.phone, employee.cccd, employee.address, employee.gender, salary.salary
+FROM employee
+INNER JOIN salary ON employee.id = salary.employee_id;

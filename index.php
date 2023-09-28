@@ -81,16 +81,16 @@ if (isset($_GET['pages'])) {
             }
             break;
 
-        case 'inventory':
+        case 'salary':
             switch ($_GET['action']) {
                 case 'add':
-                    include './admin/resources/inventory/InventoryAdd.php';
+                    include './admin/resources/salary/SalaryAdd.php';
                     break;
                 case 'edit':
-                    include './admin/resources/inventory/InventoryEdit.php';
+                    include './admin/resources/salary/SalaryEdit.php';
                     break;
                 default:
-                    include './admin/resources/inventory/InventoryAdd.php';
+                    include './admin/resources/salary/SalaryAdd.php';
                     break;
             }
             break;

@@ -101,9 +101,12 @@ if (isset($_POST['updateEmployee'])) {
     editEmployee($image, $username, $email, $phone, $cccd, $address, $gender, $employee_id);
 }
 
-
-
-
 if (isset($_POST['deleteEmployee'])) {
     deleteCurrentEmployee();
+}
+
+if (isset($_POST['addSalary'])) {
+    $employee_id = mysqli_real_escape_string($conn, $_POST['employee_id']);
+    $salary = mysqli_real_escape_string($conn, $_POST['salary']);
+    addSalary($employee_id, $salary);
 }
