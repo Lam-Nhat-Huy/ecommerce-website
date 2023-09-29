@@ -43,7 +43,7 @@
             </div>
             <div class="mb-3">
                 <label for="">Mô Tả: </label>
-                <input type="text" class="form-control" name="description" required>
+                <textarea class="form-control" name="description" required></textarea>
                 <div class="invalid-feedback">
                     Mô tả không được để trống.
                 </div>

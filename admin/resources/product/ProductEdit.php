@@ -50,7 +50,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="">Mô tả: </label>
-                        <input type="text" class="form-control" name="description" value="<?= $select_course['description'] ?>" required>
+                        <textarea class="form-control" name="description" required><?= $select_course['description'] ?></textarea>
                         <div class="invalid-feedback">
                             Mô tả không được để trống.
                         </div>

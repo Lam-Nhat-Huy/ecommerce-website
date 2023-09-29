@@ -15,11 +15,10 @@
                     <!-- menu start -->
                     <nav class="main-menu">
                         <ul>
-                            <li class="current-list-item"><a href="#">Home</a>
-                                <ul class="sub-menu">
-                                    <li><a href="?pages=client&action=index">Static Home</a></li>
+                            <li><a href="?pages=client&action=index">Home</a></li>
+                            <!-- <ul class="sub-menu">
                                     <li><a href="index_2.html">Slider Home</a></li>
-                                </ul>
+                                </ul> -->
                             </li>
                             <li><a href="about.html">About</a></li>
                             <li><a href="#">Pages</a>

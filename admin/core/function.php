@@ -256,6 +256,20 @@ function getIdFromCurrentUrl()
     }
 }
 
+function get_id_and_category_id($url)
+{
+    // Phân tích URL và lấy phần query string
+    $query = parse_url($url, PHP_URL_QUERY);
+    // Chuyển đổi query string thành một mảng kết hợp
+    parse_str($query, $params);
+    // Trả về giá trị của id và category_id nếu tồn tại, hoặc NULL nếu không
+    return array(
+        'id' => isset($params['id']) ? $params['id'] : NULL,
+        'category_id' => isset($params['category_id']) ? $params['category_id'] : NULL
+    );
+}
+
+
 function addNewProduct($name, $image, $price, $inventory, $description, $category_id)
 {
     global $conn;

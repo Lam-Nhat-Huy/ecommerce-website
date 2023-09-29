@@ -2,6 +2,8 @@
 
 <?php include('./client/include/pages/navbar.php') ?>
 
+<?php include('./client/include/pages/loading.php') ?>
+
 <?php include('./client/include/pages/slider.php') ?>
 
 <?php include('./client/include/pages/shipping.php') ?>
@@ -19,5 +21,6 @@
 <?php include('./client/include/pages/lastestnews.php') ?>
 
 <?php include('./client/include/pages/carousel.php') ?>
+
 
 <?php include('./client/include/blocks/footer.php') ?>
