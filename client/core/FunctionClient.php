@@ -93,6 +93,61 @@ function moreProduct()
                     <a href="" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
             </div>
+    <?php
+        }
+    }
+}
+
+
+function commentProduct($comment, $user_id, $product_id)
+{
+    global $conn;
+    $checkCommentQuery = "INSERT INTO comment (comment , user_id, product_id) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($checkCommentQuery);
+
+    $checkIdQuery = "SELECT * FROM products";
+    $result = $conn->query($checkIdQuery);
+    $row = $result->fetch_array();
+
+    if ($stmt === false) {
+        die('Errors' . $conn->error);
+    } else {
+        header('Location: ?pages=client&action=detail&id=' . $row['id'] . '&category_id=' . $row['category_id']);
+    }
+    $stmt->bind_param('sss', $comment, $user_id, $product_id);
+    $checkCommentResult = $stmt->execute();
+    if ($checkCommentResult) {
+        return true;
+    }
+}
+
+
+function getIdHidden()
+{
+    global $conn;
+    $checkIdHiddenQuery = "SELECT u.id AS user_id, p.id product_id FROM users u, products p, comment c WHERE c.user_id = u.id AND c.product_id = p.id";
+    $checkIdHiddenResult = $conn->query($checkIdHiddenQuery);
+    $row = $checkIdHiddenResult->fetch_array();
+    ?>
+    <input type="hidden" name="user_id" value="<?= $row['user_id'] ?>">
+    <input type="hidden" name="product_id" value="<?= $row['product_id'] ?>">
+    <?php
+}
+
+function commentView()
+{
+    global $conn;
+    $checkCommentQuery = "SELECT u.username AS username, c.comment AS comment FROM users u, comment c WHERE u.id = c.user_id ";
+    $checkCommentResult = $conn->query($checkCommentQuery);
+    if ($checkCommentResult->num_rows > 0) {
+        while ($row = $checkCommentResult->fetch_array()) {
+    ?>
+            <div class="commented-section mt-2">
+                <div class="d-flex flex-row align-items-center commented-user">
+                    <h5 class="mr-2"><?= $row['username'] ?></h5><span class="dot mb-5"></span><span class="mb-3 ml-2">4 giờ trước</span>
+                </div>
+                <div class="comment-text-sm"><span><?= $row['comment'] ?></span></div>
+            </div>
 <?php
         }
     }

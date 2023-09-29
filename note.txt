@@ -49,7 +49,20 @@ function moreProduct()
 
 
 
+SELECT *
+FROM users u, products p, comment c
+WHERE c.user_id = u.id AND c.product_id = p.id
 
+
+SELECT u.id AS user_id, p.id product_id
+FROM users u, products p
+
+
+
+
+SELECT u.id AS user_id, p.id product_id
+FROM users u, products p, comment c
+WHERE c.user_id = u.id AND c.product_id = p.id
 
 
 

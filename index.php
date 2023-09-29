@@ -20,6 +20,12 @@ if (isset($_GET['pages'])) {
         case 'execution-3':
             include './admin/core/codeProductView.php';
             break;
+        case 'execution-4':
+            include './client/core/CodeClientView.php';
+            break;
+        case 'test':
+            include './client/core/test.php';
+            break;
         case 'admin':
             switch ($_GET['action']) {
                 case 'dashboard':
